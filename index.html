@@ -20,9 +20,9 @@
 		<nav>
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo">Delivery</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="#signup-modal">Sign Up</a></li>
-					<li><a href="badges.html">Basket</a></li>
+				<ul class="right ">
+					<li><a href="#signup-modal">Sign In</a></li>
+					<li><a href="#shopping-cart" onclick="showHide()"><i class = "material-icons" id="cart">shopping_cart</i></a></li>
 				</ul>
 			</div>
 		</nav>
@@ -34,20 +34,47 @@
 			<h3><div id="signInHeader">Sign In</div></h3>
 			<form class="col s12">
 				<div class="row">
-					<i class = "material-icons">email</i>
+					<i class = "material-icons signin">email</i>
 					<input id="email" type="text" class="validate" placeholder="Email">
 					
 				</div>
 				<div class="row">
-					<i class = "material-icons">vpn_key</i>
+					<i class = "material-icons signin" >vpn_key</i>
 					<input id="pw" type="text" class="validate" placeholder="Password">
 					
+				</div>
+				<div class="row">
+					<a class="waves-effect waves-light btn" id="signInButton">Sign In</a>
 				</div>
 				<a href="#close" id="close">x</a>
 			</div>
 		</div>
+	</div>
 
-
+	<!-- Cart -->
+	<!-- http://codepen.io/drehimself/pen/VvYLmV -->
+	<div class="wrapper" id="shopping-cart">
+		<div class="cart">
+			<div id="cart-header">
+				<i class = "material-icons cart" >shopping_cart</i>
+				<span class="cart-total">
+					Total <span id="amount">$40</span>
+				</span>
+			</div><!-- end cart header -->
+			<ul class="cart-items">
+			</ul>
+		</div>
+	</div>
+	<script>
+	function showHide(){
+		if(document.getElementsByClassName('wrapper')[0].style.opacity == 1){
+			document.getElementsByClassName('wrapper')[0].style.opacity = 0;
+		}
+		else{
+			document.getElementsByClassName('wrapper')[0].style.opacity = 1;
+		}
+	}
+	</script>
 <!-- Bootstrap core JavaScript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
