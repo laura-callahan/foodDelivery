@@ -1,0 +1,90 @@
+<!DOCTYPE html>	
+<html lang="en-US" dir="ltr">  <!--direction of language l to r-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Delivery Services</title>
+	<!-- <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+	<link rel="stylesheet" type="text/css"  href="style.css" />
+</head>
+
+<body>
+	<div class="navbar-fixed">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Delivery</a>
+				<ul class="right ">
+					<li><a href="#signup-modal">Sign In</a></li>
+					<li><a href="#shopping-cart" onclick="showHide()"><i class = "material-icons" id="cart">shopping_cart</i></a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<!-- Modal --> <!-- aria hidden is for screen-readers -->
+	<div class="modalDialog" id="signup-modal" aria-hidden="true">
+		<div class="modalInner">
+			<h3><div id="signInHeader">Sign In</div></h3>
+			<form class="col s12">
+				<div class="row">
+					<i class = "material-icons signin">email</i>
+					<input id="email" type="text" class="validate" placeholder="Email">
+					
+				</div>
+				<div class="row">
+					<i class = "material-icons signin" >vpn_key</i>
+					<input id="pw" type="text" class="validate" placeholder="Password">
+					
+				</div>
+				<div class="row">
+					<a class="waves-effect waves-light btn" id="signInButton">Sign In</a>
+				</div>
+				<a href="#close" id="close">x</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Cart -->
+	<!-- http://codepen.io/drehimself/pen/VvYLmV -->
+	<div class="wrapper" id="shopping-cart">
+		<div class="cart">
+			<div id="cart-header">
+				<i class = "material-icons cart" >shopping_cart</i>
+				<span class="cart-total">
+					Total <span id="amount">$40</span>
+				</span>
+			</div><!-- end cart header -->
+			<ul class="cart-items">
+			</ul>
+		</div>
+	</div>
+	<script>
+	function showHide(){
+		if(document.getElementsByClassName('wrapper')[0].style.opacity == 1){
+			document.getElementsByClassName('wrapper')[0].style.opacity = 0;
+		}
+		else{
+			document.getElementsByClassName('wrapper')[0].style.opacity = 1;
+		}
+	}
+	</script>
+<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+</body>
+
+<footer>
+</footer>
+
+</html>
