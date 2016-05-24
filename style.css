@@ -1,3 +1,4 @@
+
 .brand-logo{
 	margin-left: 1%;
 }
@@ -89,7 +90,18 @@ input[type=text]{
     opacity: 0;
 
 }
-
+.badgee {
+   background-color: #6394F8;
+   border-radius: 10px;
+   color: white;
+   display: inline-block;
+   font-size: 12px;
+   line-height: 1;
+   padding: 3px 7px;
+   text-align: center;
+   vertical-align: middle;
+   white-space: nowrap;
+}
 
 .cart{
    margin: 20px 0;
@@ -99,9 +111,46 @@ input[type=text]{
    position: relative;
    border-radius: 3px;
    padding: 20px;
-    background-color: #fff;
+   background-color: #fff;
 }
 
+.cart-header{
+ border-bottom: 1px solid #E8E8E8;
+}
+
+.cart-total{
+    float:right;
+}
+
+#amount{
+    color:  #6394F8;
+}
+
+#empty{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.cart-items img{
+  float: left;
+  margin-right: 12px;
+}
+
+.cart-items .item-name {
+  display: block;
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+.cart-items .item-price{
+    color:#6394F8;
+}
+.cart-items .item-size{
+    color:#6394F8;
+}
+.cart-items .item-quantity{
+    color:#6394F8;
+}
 .cart:after {
     bottom: 100%;
     left: 89%;
@@ -114,4 +163,13 @@ input[type=text]{
     border-bottom-color: white;
     border-width: 8px;
     margin-left: -8px;
+}
+
+.buttonContainer{
+    text-align: center;
+    margin-bottom:1%;
+}
+
+.btn #signupSubmit{
+    text-align: center;  margin-bottom:2%;
 }
