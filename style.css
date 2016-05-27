@@ -14,70 +14,90 @@
 }
 
 .index .container{
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .index .heading{
   color: white;
-  text-align: center;
+
+  /*text-align: center;*/
+}
+.index ::-webkit-input-placeholder {
+   color: black;
 }
 
-  #cart{
-    display: inline; !important
-    line-height: inherit;
-    font-size: 1.4rem;
-  }
+.index:-moz-placeholder { /* Firefox 18- */
+   color: black;  
+}
+
+.index::-moz-placeholder {  /* Firefox 19+ */
+   color: black;  
+}
+
+.index :-ms-input-placeholder {  
+   color: black;  
+}
+.index input[type=search] {
+   color:black;
+   background-color: rgba(255,255,255,0.4);
+}
+
+#cart{
+  display: inline; !important
+  line-height: inherit;
+  font-size: 1.4rem;
+}
 
 
-  /*http://jsfiddle.net/raving/1mhsynmw/*/
-  /*https://codepen.io/maccadb7/pen/nbHEg?editors=1100*/
-  /*Modal */
-  .modalDialog {
-    position: fixed;
-    font-family: Arial, Helvetica, sans-serif;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 99999;
-    opacity:0;
-    -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in;
-    transition: opacity 400ms ease-in;
-    pointer-events: none;
-  }
-  .modalDialog:target {
-    opacity:1;
-    pointer-events: auto;
-  }
-  .modalDialog > div {
-    width: 400px;
-    position: relative;
-    margin: 10% auto;
-    padding: 5px 20px 13px 20px;
-    background: #fff;
-    border-radius: 4px;
-  }
+/*http://jsfiddle.net/raving/1mhsynmw/*/
+/*https://codepen.io/maccadb7/pen/nbHEg?editors=1100*/
+/*Modal */
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  background: #fff;
+  border-radius: 4px;
+}
 
-  #close {
-   line-height: 34px;
-   font-size:1.4rem;
-   color: #000;
-   position: absolute;
-   right: 0;
-   text-align: center;
-   top: 0;
-   padding: 0 0.9rem;
- }
- #close:hover {
+#close {
+ line-height: 34px;
+ font-size:1.4rem;
+ color: #000;
+ position: absolute;
+ right: 0;
+ text-align: center;
+ top: 0;
+ padding: 0 0.9rem;
+}
+#close:hover {
 
- }
+}
 
- /*Sign In*/
- #signInHeader{
+/*Sign In*/
+#signInHeader{
   text-align: center;
 }
 
