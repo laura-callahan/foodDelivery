@@ -7,65 +7,77 @@
 	text-shadow: 0px 0px 5px rgba(255,255,255,0.5);
 }
 
-.searchBar{
-  display: none;
+.index{
+  background-image: url('/bg.jpg');
+  background-repeat:no-repeat;
+  background-size:100%;
 }
 
-#cart{
-  display: inline; !important
-  line-height: inherit;
-  font-size: 1.4rem;
+.index .container{
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-/*http://jsfiddle.net/raving/1mhsynmw/*/
-/*https://codepen.io/maccadb7/pen/nbHEg?editors=1100*/
-/*Modal */
-.modalDialog {
-  position: fixed;
-  font-family: Arial, Helvetica, sans-serif;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 99999;
-  opacity:0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  pointer-events: none;
-}
-.modalDialog:target {
-  opacity:1;
-  pointer-events: auto;
-}
-.modalDialog > div {
-  width: 400px;
-  position: relative;
-  margin: 10% auto;
-  padding: 5px 20px 13px 20px;
-  background: #fff;
-  border-radius: 4px;
-}
-
-#close {
-	line-height: 34px;
-	font-size:1.4rem;
-  color: #000;
-  position: absolute;
-  right: 0;
+.index .heading{
+  color: white;
   text-align: center;
-  top: 0;
-  padding: 0 0.9rem;
-}
-#close:hover {
-
 }
 
-/*Sign In*/
-#signInHeader{
+  #cart{
+    display: inline; !important
+    line-height: inherit;
+    font-size: 1.4rem;
+  }
+
+
+  /*http://jsfiddle.net/raving/1mhsynmw/*/
+  /*https://codepen.io/maccadb7/pen/nbHEg?editors=1100*/
+  /*Modal */
+  .modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+  }
+  .modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+  }
+  .modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    background: #fff;
+    border-radius: 4px;
+  }
+
+  #close {
+   line-height: 34px;
+   font-size:1.4rem;
+   color: #000;
+   position: absolute;
+   right: 0;
+   text-align: center;
+   top: 0;
+   padding: 0 0.9rem;
+ }
+ #close:hover {
+
+ }
+
+ /*Sign In*/
+ #signInHeader{
   text-align: center;
 }
 
@@ -112,14 +124,14 @@ input[type=text], input[type=password]{
 
 .cart{
   z-index: 900;
- margin: 20px 0;
- /*box-shadow: 0px 1px 5px 1px;*/
- right: 0;
- width: 320px;
- position: absolute;
- border-radius: 3px;
- padding: 20px;
- background-color: #fff;
+  margin: 20px 0;
+  /*box-shadow: 0px 1px 5px 1px;*/
+  right: 0;
+  width: 320px;
+  position: absolute;
+  border-radius: 3px;
+  padding: 20px;
+  background-color: #fff;
 }
 
 .cart-header{

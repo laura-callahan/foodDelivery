@@ -2,19 +2,25 @@
 
 <?php
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "hanapuan";
 $password = "warEhou!se";
-$dbname = "ShippingInfo";
+$dbname = "hanapuan";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-if($conn->connect_error){
+ if($conn->connect_error){
         die("Connection to ShippingInfo Failed: ". $conn->connect_error);
 }
+else{
+	echo "Yay!";
+}
 
+echo $_POST['shipFname'];
+/*
 $sql = "INSERT INTO ShippingInfo (FirstName, LastName, Street, Rm, City, State, Zipcode) VALUES ( $_POST['shipFname'], $_POST['shipLname'], $_POST['shipStreet'], $_POST['shipRm'], $_POST['shipCity'], $_POST['shipState'], $_POST['shipZipcode'])";
+echo $sql;
 
   if($conn->query($sql) === TRUE){
   }else{
@@ -39,5 +45,5 @@ $sql2 = "INSERT INTO BillingInfo (FirstName, LastName, Street, Rm, City, State, 
   }
 
 $conn2->close();
-
+ */
 ?>
