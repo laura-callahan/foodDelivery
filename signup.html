@@ -20,180 +20,187 @@
 			<div class="nav-wrapper">
 				<a href="/index.html" class="brand-logo">Delivery</a>
 				<ul class="right ">
+					<li> <label for="search" class='search'><i class="material-icons">search</i></label></li>
 					<li><a href="./signup.html">Sign Up</a></li>
 					<li><a href="#signup-modal">Sign In</a></li>
 					<li><a href="#shopping-cart" onclick="showHide()"><i class = "material-icons" id="cart">shopping_cart</i></a></li>
 				</ul>
 			</div>
 		</nav>
+		<div class='searchBar'>
+	<div class="input-field">
+		<input id="search" type="search" required>
+		<label for="search"><i class="material-icons">search</i></label>
+		<i class="material-icons">close</i>
 	</div>
-	<!-- Cart -->
-	<!-- http://codepen.io/drehimself/pen/VvYLmV -->
-	<div class="wrapper" id="shopping-cart">
-		<div class="cart">
-			<div id="cart-header">
-				<span class="badgee">Num Items</span>
-				<span class="cart-total">
-					<span id='tot'>	Total</span> <span id="amount">$40</span>
-				</span>
-			</div><!-- end cart header -->
-			<ul class="cart-items">
-				<!-- if empty -->
-				<div id='empty'> Empty Cart </div>
-				<!-- else -->
-				<li class="clearfix">
-					<img src="http://economictimes.indiatimes.com/photo/22729131.cms" alt="item1" width="70" height="70"/>
-					<span class="item-name">French Fries</span>
-					<span class="item-price">$2</span>
-					<span class="item-size">Medium</span>
-					<span class="item-quantity">Quantity: 01</span>
+</div>
+	</div>
+<!-- Cart -->
+<!-- http://codepen.io/drehimself/pen/VvYLmV -->
+<div class="wrapper" id="shopping-cart">
+	<div class="cart">
+		<div id="cart-header">
+			<span class="badgee">Num Items</span>
+			<span class="cart-total">
+				<span id='tot'>	Total</span> <span id="amount">$40</span>
+			</span>
+		</div><!-- end cart header -->
+		<ul class="cart-items">
+			<!-- if empty -->
+			<div id='empty'> Empty Cart </div>
+			<!-- else -->
+			<li class="clearfix">
+				<img src="http://economictimes.indiatimes.com/photo/22729131.cms" alt="item1" width="70" height="70"/>
+				<span class="item-name">French Fries</span>
+				<span class="item-price">$2</span>
+				<span class="item-size">Medium</span>
+				<span class="item-quantity">Quantity: 01</span>
 
-				</li>
-			</ul>
-			<div id="cart-footer">  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
-				<form action="" method="POST">
-					<!--    <enter data amount here later>-->
-					<script
-					src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-					data-key="pk_live_SiH7iKhWhaCSDkSYNvum1Fju"
+			</li>
+		</ul>
+		<div id="cart-footer">  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+			<form action="" method="POST">
+				<!--    <enter data amount here later>-->
+				<script
+				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				data-key="pk_live_SiH7iKhWhaCSDkSYNvum1Fju"
 
-					data-amount="999"
-					data-name="Food Truck Site"
-					data-description="Pay Here!"
-					data-image="http://usnwc.org/wp-content/uploads/2015/05/Foodtruck_icon1.png"
-					data-locale="auto">
-					</script>
-				</form>
+				data-amount="999"
+				data-name="Food Truck Site"
+				data-description="Pay Here!"
+				data-image="http://usnwc.org/wp-content/uploads/2015/05/Foodtruck_icon1.png"
+				data-locale="auto">
+				</script>
+			</form>
 
 
 
-				<noscript><p>JavaScript is required for the checkout form.</p></noscript>
+			<noscript><p>JavaScript is required for the checkout form.</p></noscript>
 
-				<!-- change this path to card.js --></div>
-			</div>
+			<!-- change this path to card.js --></div>
 		</div>
+	</div>
+	<div class="container">
+		<h4>Delivery Information</h4>
+		<form action="server.js" method="post">
 
-		<div class="container">
-			<h4>Delivery Information</h4>
-			<form action="SaveInfo.php" method="post">
-
-				<div class="row">
-					<div class="input-field col s6">
-						First Name<input type="text" name="shipFname" placeholder="First Name"><br>
-					</div>
-					<div class="input-field col s6">
-						Last Name<input type="text" name="shipLname" placeholder="Last Name"><br>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						Email<input type="text" name="shipUname" placeholder="name@company.com"><br>
-					</div>
-					<div class="input-field col s6">
-						Password<input type="password" name="pw" >
-					</div>
-				</div>
-				Street    <input type="text" name="shipStreet" maxlength="32" size="32" placeholder="404 Maple St">  
-				Apt/Room <input type="text" name="shipRm" maxlength="12" size="12"><br>
-				City       <input type="text" name="shipCity" maxlength="12" size="12" placeholder="Denver">   
-				<div class="row"> 
-					<div class="input-field col s6">
-						State<select> <option value="" disabled selected>Colorado</option>
-						<option value="AL">Alabama</option>
-						<option value="AK">Alaska</option>
-						<option value="AZ">Arizona</option>
-						<option value="AR">Arkansas</option>
-						<option value="CA">California</option>
-						<option value="CO">Colorado</option>
-						<option value="CT">Connecticut</option>
-						<option value="DE">Delaware</option>
-						<option value="DC">District Of Columbia</option>
-						<option value="FL">Florida</option>
-						<option value="GA">Georgia</option>
-						<option value="HI">Hawaii</option>
-						<option value="ID">Idaho</option>
-						<option value="IL">Illinois</option>
-						<option value="IN">Indiana</option>
-						<option value="IA">Iowa</option>
-						<option value="KS">Kansas</option>
-						<option value="KY">Kentucky</option>
-						<option value="LA">Louisiana</option>
-						<option value="ME">Maine</option>
-						<option value="MD">Maryland</option>
-						<option value="MA">Massachusetts</option>
-						<option value="MI">Michigan</option>
-						<option value="MN">Minnesota</option>
-						<option value="MS">Mississippi</option>
-						<option value="MO">Missouri</option>
-						<option value="MT">Montana</option>
-						<option value="NE">Nebraska</option>
-						<option value="NV">Nevada</option>
-						<option value="NH">New Hampshire</option>
-						<option value="NJ">New Jersey</option>
-						<option value="NM">New Mexico</option>
-						<option value="NY">New York</option>
-						<option value="NC">North Carolina</option>
-						<option value="ND">North Dakota</option>
-						<option value="OH">Ohio</option>
-						<option value="OK">Oklahoma</option>
-						<option value="OR">Oregon</option>
-						<option value="PA">Pennsylvania</option>
-						<option value="RI">Rhode Island</option>
-						<option value="SC">South Carolina</option>
-						<option value="SD">South Dakota</option>
-						<option value="TN">Tennessee</option>
-						<option value="TX">Texas</option>
-						<option value="UT">Utah</option>
-						<option value="VT">Vermont</option>
-						<option value="VA">Virginia</option>
-						<option value="WA">Washington</option>
-						<option value="WV">West Virginia</option>
-						<option value="WI">Wisconsin</option>
-						<option value="WY">Wyoming</option>
-					</select>
+			<div class="row">
+				<div class="input-field col s6">
+					First Name<input type="text" name="shipFname" placeholder="First Name"><br>
 				</div>
 				<div class="input-field col s6">
-					Zipcode <input type="text" name="shipZipcode" maxlength="5" size="5"placeholder="80210"><br>
+					Last Name<input type="text" name="shipLname" placeholder="Last Name"><br>
 				</div>
 			</div>
-			<p>
-				<input type="checkbox" id="checkbox" />
-				<label for="checkbox">Different billing information</label>
-			</p>
-			<div id="hideOrNo">
-				<h4>Billing Information</h4><div class="row"><div class="input-field col s6">
-				First Name<input type="text" name="shipFname" placeholder="First Name"><br></div><div class="input-field col s6">Last Name<input type="text" name="shipLname" placeholder="Last Name"><br></div></div>Street<input type="text" name="shipStreet" maxlength="32" size="32" placeholder="404 Maple St">Apt/Room <input type="text" name="shipRm" maxlength="12" size="12"><br>City<input type="text" name="shipCity" maxlength="12" size="12" placeholder="Denver"><div class="row"> <div class="input-field col s6">State<select> <option value="" disabled selected>Colorado</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select></div><div class="input-field col s6">Zipcode <input type="text" name="shipZipcode" maxlength="5" size="5" placeholder="80210"><br></div></div>
+			<div class="row">
+				<div class="input-field col s6">
+					Email<input type="text" name="shipUname" placeholder="name@company.com"><br>
+				</div>
+				<div class="input-field col s6">
+					Password<input type="password" name="pw" >
+				</div>
 			</div>
-			<div class="buttonContainer">
-				<button class="btn waves-effect waves-light" type="submit" name="action" id='signupSubmit'>Submit
-				</button>
+			Street    <input type="text" name="shipStreet" maxlength="32" size="32" placeholder="404 Maple St">  
+			Apt/Room <input type="text" name="shipRm" maxlength="12" size="12"><br>
+			City       <input type="text" name="shipCity" maxlength="12" size="12" placeholder="Denver">   
+			<div class="row"> 
+				<div class="input-field col s6">
+					State<select> <option value="" disabled selected>Colorado</option>
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DE">Delaware</option>
+					<option value="DC">District Of Columbia</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesota</option>
+					<option value="MS">Mississippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="NE">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New Hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="SD">South Dakota</option>
+					<option value="TN">Tennessee</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+				</select>
 			</div>
-		</form>
-	</div>
-	<!-- search -->
-
-	<!-- Modal --> <!-- aria hidden is for screen-readers -->
-	<div class="modalDialog" id="signup-modal" aria-hidden="true">
-		<div class="modalInner">
-			<h3><div id="signInHeader">Sign In</div></h3>
-			<form class="col s12">
-				<div class="row">
-					<i class = "material-icons signin">email</i>
-					<input id="email" type="text" class="validate" placeholder="Email">
-
-				</div>
-				<div class="row">
-					<i class = "material-icons signin" >vpn_key</i>
-					<input id="pw" type="text" class="validate" placeholder="Password">
-
-				</div>
-				<div class="row">
-					<a class="waves-effect waves-light btn" id="signInButton">Sign In</a>
-				</div>
-				<a href="#close" id="close">x</a>
+			<div class="input-field col s6">
+				Zipcode <input type="text" name="shipZipcode" maxlength="5" size="5"placeholder="80210"><br>
 			</div>
 		</div>
+		<p>
+			<input type="checkbox" id="checkbox" />
+			<label for="checkbox">Different billing information</label>
+		</p>
+		<div id="hideOrNo">
+			<h4>Billing Information</h4><div class="row"><div class="input-field col s6">
+			First Name<input type="text" name="shipFname" placeholder="First Name"><br></div><div class="input-field col s6">Last Name<input type="text" name="shipLname" placeholder="Last Name"><br></div></div>Street<input type="text" name="shipStreet" maxlength="32" size="32" placeholder="404 Maple St">Apt/Room <input type="text" name="shipRm" maxlength="12" size="12"><br>City<input type="text" name="shipCity" maxlength="12" size="12" placeholder="Denver"><div class="row"> <div class="input-field col s6">State<select> <option value="" disabled selected>Colorado</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select></div><div class="input-field col s6">Zipcode <input type="text" name="shipZipcode" maxlength="5" size="5" placeholder="80210"><br></div></div>
+		</div>
+		<div class="buttonContainer">
+			<button class="btn waves-effect waves-light" type="submit" name="action" id='signupSubmit'>Submit
+			</button>
+		</div>
+	</form>
+</div>
+<!-- search -->
+
+<!-- Modal --> <!-- aria hidden is for screen-readers -->
+<div class="modalDialog" id="signup-modal" aria-hidden="true">
+	<div class="modalInner">
+		<h3><div id="signInHeader">Sign In</div></h3>
+		<form class="col s12">
+			<div class="row">
+				<i class = "material-icons signin">email</i>
+				<input id="email" type="text" class="validate" placeholder="Email">
+
+			</div>
+			<div class="row">
+				<i class = "material-icons signin" >vpn_key</i>
+				<input id="pw" type="text" class="validate" placeholder="Password">
+
+			</div>
+			<div class="row">
+				<a class="waves-effect waves-light btn" id="signInButton">Sign In</a>
+			</div>
+			<a href="#close" id="close">x</a>
+		</div>
 	</div>
+</div>
 
 <!-- Bootstrap core JavaScript
 	================================================== -->
@@ -207,6 +214,10 @@
 	$(document).ready(function() {
 		$('select').material_select();
 	});
+	$('.search').click(function(){
+		$('.searchBar').toggle("swing");
+
+	});
 	$('#checkbox').change(function(){
 		if (this.checked){
 			$("#hideOrNo").fadeIn("slow");
@@ -216,7 +227,7 @@
 		}
 	});
 
-
+	
 	</script>
 	<script>
 	function showHide(){
