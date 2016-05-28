@@ -20,64 +20,57 @@
 			<div class="nav-wrapper">
 				<a href="/index.html" class="brand-logo">Delivery</a>
 				<ul class="right ">
-					<li> <label for="search" class='search'><i class="material-icons">search</i></label></li>
 					<li><a href="./signup.html">Sign Up</a></li>
 					<li><a href="#signup-modal">Sign In</a></li>
-					<li><a href="#shopping-cart" onclick="showHide()"><i class = "material-icons" id="cart">shopping_cart</i></a></li>
+					<li><a href="#/shopping-cart" onclick="showHide()"><i class = "material-icons" id="cart">shopping_cart</i></a></li>
 				</ul>
 			</div>
 		</nav>
-		<div class='searchBar'>
-	<div class="input-field">
-		<input id="search" type="search" required>
-		<label for="search"><i class="material-icons">search</i></label>
-		<i class="material-icons">close</i>
 	</div>
-</div>
-	</div>
-<!-- Cart -->
-<!-- http://codepen.io/drehimself/pen/VvYLmV -->
-<div class="wrapper" id="shopping-cart">
-	<div class="cart">
-		<div id="cart-header">
-			<span class="badgee">Num Items</span>
-			<span class="cart-total">
-				<span id='tot'>	Total</span> <span id="amount">$40</span>
-			</span>
-		</div><!-- end cart header -->
-		<ul class="cart-items">
-			<!-- if empty -->
-			<div id='empty'> Empty Cart </div>
-			<!-- else -->
-			<li class="clearfix">
-				<img src="http://economictimes.indiatimes.com/photo/22729131.cms" alt="item1" width="70" height="70"/>
-				<span class="item-name">French Fries</span>
-				<span class="item-price">$2</span>
-				<span class="item-size">Medium</span>
-				<span class="item-quantity">Quantity: 01</span>
+	<!-- Cart -->
+	<!-- http://codepen.io/drehimself/pen/VvYLmV -->
+	<div class="wrapper" id="shopping-cart">
+		<div class="cart">
+			<div id="cart-header">
+				<span class="badgee">Num Items</span>
+				<span class="cart-total">
+					<span id='tot'>	Total</span> <span id="amount">$40</span>
+				</span>
+			</div><!-- end cart header -->
+			<ul class="cart-items">
+				<!-- if empty -->
+				<div id='empty'> Empty Cart </div>
+				<!-- else -->
+				<li class="clearfix">
+					<img src="http://economictimes.indiatimes.com/photo/22729131.cms" alt="item1" width="70" height="70"/>
+					<span class="item-name">French Fries</span>
+					<span class="item-price">$2</span>
+					<span class="item-size">Medium</span>
+					<span class="item-quantity">Quantity: 01</span>
 
-			</li>
-		</ul>
-		<div id="cart-footer">  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
-			<form action="" method="POST">
-				<!--    <enter data amount here later>-->
-				<script
-				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				data-key="pk_live_SiH7iKhWhaCSDkSYNvum1Fju"
+				</li>
+			</ul>
+			<div id="cart-footer">  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+				<form action="" method="POST">
+					<!--    <enter data amount here later>-->
+					<script
+					src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+					data-key="pk_live_SiH7iKhWhaCSDkSYNvum1Fju"
 
-				data-amount="999"
-				data-name="Food Truck Site"
-				data-description="Pay Here!"
-				data-image="http://usnwc.org/wp-content/uploads/2015/05/Foodtruck_icon1.png"
-				data-locale="auto">
-				</script>
-			</form>
+					data-amount="999"
+					data-name="Food Truck Site"
+					data-description="Pay Here!"
+					data-image="http://usnwc.org/wp-content/uploads/2015/05/Foodtruck_icon1.png"
+					data-locale="auto">
+					</script>
+				</form>
 
 
 
-			<noscript><p>JavaScript is required for the checkout form.</p></noscript>
+				<noscript><p>JavaScript is required for the checkout form.</p></noscript>
 
-			<!-- change this path to card.js --></div>
+				<!-- change this path to card.js --></div>
+			</div>
 		</div>
 	</div>
 	<div class="container">
@@ -233,11 +226,10 @@
 	function showHide(){
 		if(document.getElementsByClassName('wrapper')[0].style.opacity == 1){
 			document.getElementsByClassName('wrapper')[0].style.opacity = 0;
-			document.getElementsByTagName("body")[0].style.background = '#fff';
+			
 		}
 		else{
 			document.getElementsByClassName('wrapper')[0].style.opacity = 1;
-			document.getElementsByTagName("body")[0].style.background = 'rgba(0, 0, 0, 0.2)';
 		}
 	}
 	</script>
