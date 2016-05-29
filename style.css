@@ -265,6 +265,14 @@ input[type=text], input[type=password]{
 
 
 /*Display Search Results*/
+.flexbox{
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
 .input-field label{
   font-size: 1rem;
   left: -2rem;
@@ -298,5 +306,17 @@ input[type=text], input[type=password]{
   background-color: #FF0000;
 }
 
+
+/*Sign Up More Details*/
+
+
+#confirm{
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#confirm0{
+  text-align: center;
+}
 
 
