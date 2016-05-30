@@ -1,0 +1,5 @@
+<?php
+
+$salt = random_bytes(15);
+
+$verifier = $salt + hash("SHA256", $salt + $password);

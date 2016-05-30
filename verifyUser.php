@@ -84,88 +84,43 @@
 
 <?php
 
-
 $servername = "127.0.0.1";
 $username = "hanapuan";
 $password = "warEhou!se";
 $dbname = "hanapuan";
 
-//starting sql connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-//checking that the username is not already taken in users table
- $sql4 = "SELECT * from Users where Username='" . $_POST['shipUname'] . "';";
- $sql4 = htmlspecialchars($sql4);
- //echo $sql4;
+$p = htmlspecialchars($_POST['pw']);
+$name = htmlspecialchars($_POST['email']);
 
-$result = mysqli_query($conn, $sql4);
+$sql = "SELECT Salt, Verifier from Users where Username='" . $name ."';";
 
-//echo $result->num_rows . " MEEOWMEOWMEOW";
-if($result->num_rows > 0){
-  echo "<center><br><br><br><h2>Error: Account with that email already exists!</h2></center>";
-  echo "<center><br> <button onclick='goBack()'>Go Back?</button></center>";
+$result = $conn->query($sql);
+$verifier;
+
+if($result->num_rows == 1){
+//echo $result->num_rows;
+$r = $result->fetch_assoc();
+$salt = $r['Salt'];
+$tableVerifier = $r['Verifier'];
+$verifier = $salt . hash("SHA256", $salt . $p);
+$matches = strcmp($verifier, $tableVerifier);
+
+if($matches == 0){
+  echo "<br><br><br><center><h2>Welcome, " . $name . "</h2></center><br>";
 }
 else{
-echo "<br><br><center><h2>Welcome, " . $_POST['shipUname'] . "</h2><br></center><center><p>Account successfully created!</p></center>";
-//if the username isnt taken, continue with adding user info into table and shipping and billing info to tables
-
-//create hashed verifier
-  //echo $_POST['pw1'];
-$salt = mcrypt_create_iv(15, MCRYPT_DEV_URANDOM);
-//echo "Hello/n";
-$verifier = $salt . hash("SHA256", $salt . htmlspecialchars($_POST['pw1']));
-//echo $verifier;
-
-
-  $sql3 = 'INSERT INTO Users (Username, Salt, Verifier) VALUES ( ' . "'" . $_POST['shipUname'] . "', '" . $salt . "', '" . $verifier ."');";
- 
-//echo $sql3;
-
-  if($conn->query($sql3) === TRUE){
-  }else{
-    echo "Error: " . $sql3 . "<br>" . $conn->error;
-  }
-
-   if($conn->connect_error){
-        die("Connection to ShippingInfo Failed: ". $conn->connect_error);
+  echo "<br><br><br><h2><center>Incorrect password!</center></h2>";
+   echo "<center><br> <button onclick='goBack()'>Go Back?</button></center>";
 }
 
-//insert shipping info for user
-$sql = 'INSERT INTO ShippingInfo (FirstName, LastName, Street, Rm, City, State, Zipcode, Username) VALUES ( ' . "'" . htmlspecialchars($_POST['shipFname']) . "', '" . htmlspecialchars($_POST['shipLname']) . "', '" . htmlspecialchars($_POST['shipStreet']) . "', '" . htmlspecialchars($_POST['shipRm']). "', '" . htmlspecialchars($_POST['shipCity']). "', '" . htmlspecialchars($_POST['shipState']) . "', '" . htmlspecialchars($_POST['shipZipcode']) . "', '". htmlspecialchars($_POST['shipUname']) . "');";
-
-  if($conn->query($sql) === TRUE){
-  }else{
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-
-
-//insert same billing info as shipping info if not otherwise specified
-if($_POST['billFname'] != null){
-  $sql2 = 'INSERT INTO BillingInfo (FirstName, LastName, Street, Rm, City, State, Zipcode, Username) VALUES ( ' . "'" . htmlspecialchars($_POST['billFname']) . "', '" . htmlspecialchars($_POST['billLname']) . "', '" . htmlspecialchars($_POST['billStreet']). "', '" . htmlspecialchars($_POST['billRm']) . "', '" . htmlspecialchars($_POST['billCity']) . "', '" . htmlspecialchars($_POST['billState']) . "', '" . htmlspecialchars($_POST['billZipcode']) ."', '". htmlspecialchars($_POST['shipUname']) . "');";
 }
-//inserting different billing info
 else{
-  $sql2 = 'INSERT INTO BillingInfo (FirstName, LastName, Street, Rm, City, State, Zipcode, Username) VALUES ( ' . "'" . htmlspecialchars($_POST['shipFname']) . "', '" . htmlspecialchars($_POST['shipLname']) . "', '" . htmlspecialchars($_POST['shipStreet']). "', ' " . htmlspecialchars($_POST['shipRm']). "', '" . htmlspecialchars($_POST['shipCity']). "', '" . htmlspecialchars($_POST['shipState']) . "', '" . htmlspecialchars($_POST['shipZipcode']) ."', '". htmlspecialchars($_POST['shipUname']) ."');";
+  echo "<br><br><br><center><h2>User does not exist!</h2></center>";
+   echo "<center><br> <button onclick='goBack()'>Go Back?</button></center>";
 }
-//echo "\n" . $sql2;
-
-  if($conn->query($sql2) === TRUE){
-  }else{
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
-  }
-}
-//echo "Saved Shipping Info: <br>"
-//while( $row = mysqli_fetch_array($result)){
-  // echo $row[FirstName] . $row[LastName] . "<br>";
-  // echo $row[Street] . "<br>";
-  // echo $row[Rm] . "<br>";
-  // echo $row[City] . ", " $row[State] . " " . $row[Zipcode]."<br><br>";
-  //echo 'hi';
-//}
-
-//close connection
 $conn->close();
-
 ?>
 
 </div>
