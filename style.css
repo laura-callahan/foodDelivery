@@ -1,4 +1,8 @@
+html{
+  overflow:hidden;
 
+}
+/*Nav bar stuff*/
 .brand-logo{
 	margin-left: 1%;
 }
@@ -7,77 +11,133 @@
 	text-shadow: 0px 0px 5px rgba(255,255,255,0.5);
 }
 
+/*Index.html styling*/
 .index{
   background-image: url('/bg.jpg');
   background-repeat:no-repeat;
   background-size:100%;
 }
 
-.index .container{
-    display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .index .heading{
   color: white;
-  text-align: center;
 }
 
-  #cart{
-    display: inline; !important
-    line-height: inherit;
-    font-size: 1.4rem;
-  }
+.index .container{
+  position: absolute;
+  text-align: center;
+  top: 30%;  
+  left: 35%;
+}
+
+.index ::-webkit-input-placeholder {
+ color: #6d6b6b;
+ font-style: italic;
+ font-size: 1.6rem;
+}
+
+.index:-moz-placeholder { /* Firefox 18- */
+ color: #6d6b6b;  
+ font-style: italic;
+}
+
+.index::-moz-placeholder {  /* Firefox 19+ */
+ color: #6d6b6b;  
+ font-style: italic;
+}
+
+.index :-ms-input-placeholder {  
+ color: #6d6b6b; 
+ font-style: italic; 
+}
+
+.index input[type=search] {
+ color:black;
+ background-color: rgba(255,255,255,0.6);
+ border-radius: 3px;
+}
+
+.index form{
+  white-space: nowrap; !important
+}
+/*http://codepen.io/siwicki/pen/FHkwu*/
+.index  form button {
+  position: relative;
+  border: 0;
+  padding: 0;
+  left:5px;
+  cursor: pointer;
+  height: 43px;
+  width: 72px;
+  color: white;
+  text-transform: uppercase;
+  background: #D83C3C;
+  white-space: nowrap;
+  border-radius: 0 3px 3px 0;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+  left:-12px;
+}
+
+.index form button:before {
+  content: '';
+  position: absolute;
+  border-width: 8px 8px 8px 0;
+  border-style: solid solid solid none;
+  border-color: transparent #d83c3c transparent;
+  left:-6px;
+}
 
 
-  /*http://jsfiddle.net/raving/1mhsynmw/*/
-  /*https://codepen.io/maccadb7/pen/nbHEg?editors=1100*/
-  /*Modal */
-  .modalDialog {
-    position: fixed;
-    font-family: Arial, Helvetica, sans-serif;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 99999;
-    opacity:0;
-    -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in;
-    transition: opacity 400ms ease-in;
-    pointer-events: none;
-  }
-  .modalDialog:target {
-    opacity:1;
-    pointer-events: auto;
-  }
-  .modalDialog > div {
-    width: 400px;
-    position: relative;
-    margin: 10% auto;
-    padding: 5px 20px 13px 20px;
-    background: #fff;
-    border-radius: 4px;
-  }
 
-  #close {
-   line-height: 34px;
-   font-size:1.4rem;
-   color: #000;
-   position: absolute;
-   right: 0;
-   text-align: center;
-   top: 0;
-   padding: 0 0.9rem;
- }
- #close:hover {
 
- }
 
- /*Sign In*/
- #signInHeader{
+/*http://jsfiddle.net/raving/1mhsynmw/*/
+/*https://codepen.io/maccadb7/pen/nbHEg?editors=1100*/
+/*Modal */
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+#close {
+ line-height: 34px;
+ font-size:1.4rem;
+ color: #000;
+ position: absolute;
+ right: 0;
+ text-align: center;
+ top: 0;
+ padding: 0 0.9rem;
+}
+#close:hover {
+
+}
+
+/*Sign In*/
+#signInHeader{
   text-align: center;
 }
 
@@ -122,16 +182,21 @@ input[type=text], input[type=password]{
  white-space: nowrap;
 }
 
+#cart{
+  display: inline; !important
+  line-height: inherit;
+  font-size: 1.4rem;
+}
+
 .cart{
   z-index: 900;
-  margin: 20px 0;
-  /*box-shadow: 0px 1px 5px 1px;*/
-  right: 0;
+  right:0;
   width: 320px;
   position: absolute;
   border-radius: 3px;
   padding: 20px;
   background-color: #fff;
+  margin: 20px;
 }
 
 .cart-header{
@@ -189,12 +254,69 @@ input[type=text], input[type=password]{
   text-align: center;
   margin-bottom:1%;
 }
+
 /*Sign Up*/
 #hideOrNo{
   display: none;
 }
 .btn #signupSubmit{
   text-align: center;  margin-bottom:2%;
+}
+
+
+/*Display Search Results*/
+.flexbox{
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.input-field label{
+  font-size: 1rem;
+  left: -2rem;
+}
+
+.star-ratings {
+  unicode-bidi: bidi-override;
+  color: #c5c5c5;
+  font-size: 20px;
+  height: 25px;
+  width: 100px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  text-shadow: 0px 1px 0 #a2a2a2;
+}
+
+.star-ratings-fill {
+  color: #e7711b;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: block;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.progress{
+  /*red by default, determinate adds green overlay*/
+  background-color: #FF0000;
+}
+
+
+/*Sign Up More Details*/
+
+
+#confirm{
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#confirm0{
+  text-align: center;
 }
 
 
