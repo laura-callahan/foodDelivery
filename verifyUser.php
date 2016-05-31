@@ -128,25 +128,27 @@ $conn->close();
 
 <!-- Modal --> <!-- aria hidden is for screen-readers -->
 <div class="modalDialog" id="signup-modal" aria-hidden="true">
-  <div class="modalInner">
-    <h3><div id="signInHeader">Sign In</div></h3>
-    <form class="col s12">
-      <div class="row">
-        <i class = "material-icons signin">email</i>
-        <input id="email" type="text" class="validate" placeholder="Email">
+	<div class="modalInner">
+		<h3><div id="signInHeader">Sign In</div></h3>
+		<form class="col s12" action="verifyUser.php" method="POST">
+			<div class="row">
+				<i class = "material-icons signin">email</i>
+				       <input id="email" name="email" type="email" class="validate" placeholder="Email">
 
-      </div>
-      <div class="row">
-        <i class = "material-icons signin" >vpn_key</i>
-        <input id="pw" name="pw" type="text" class="validate" placeholder="Password">
+			</div>
+			<div class="row">
+				<i class = "material-icons signin" >vpn_key</i>
+				<input id="pw" name="pw" type="password" class="validate" placeholder="Password">
 
-      </div>
-      <div class="row">
-        <a class="waves-effect waves-light btn" id="signInButton">Sign In</a>
-      </div>
-      <a href="#close" id="close">x</a>
-    </div>
-  </div>
+			</div>
+			<div class="row">
+			<button class="btn waves-effect waves-light" type="submit" name="action" id='signupSubmit'><input type="submit">
+			</button>
+
+			</div>
+			<a href="#close" id="close">x</a>
+		</div>
+	</div>
 </div>
 
 <!-- Bootstrap core JavaScript
