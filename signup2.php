@@ -19,25 +19,25 @@ session_start();
 </head>
 <body>
 
+<!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#">Teal</a></li>
+    <li><a href="#">Salmon</a></li>
+    <li><a href="#">Black</a></li>
+  </ul>
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="/index.html" class="brand-logo">Delivery</a>
+        <a href="./index.html" class="brand-logo">Delivery</a>
         <ul class="right ">
-          <li> <label for="search" class='search'><i class="material-icons">search</i></label></li>
           <li><a href="./signup.html">Sign Up</a></li>
           <li><a href="#signup-modal">Sign In</a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button" href="#" data-activates="dropdown1">Theme</a></li>
           <li><a href="#shopping-cart" onclick="showHide()"><i class = "material-icons" id="cart">shopping_cart</i></a></li>
         </ul>
       </div>
     </nav>
-    <div class='searchBar'>
-  <div class="input-field">
-    <input id="search" type="search" required>
-    <label for="search"><i class="material-icons">search</i></label>
-    <i class="material-icons">close</i>
-  </div>
-</div>
   </div>
 <!-- Cart -->
 <!-- http://codepen.io/drehimself/pen/VvYLmV -->
@@ -113,8 +113,6 @@ $verifier = $salt . hash("SHA256", $salt . $p);
 $matches = strcmp($verifier, $tableVerifier);
 
 if($matches == 0){
-
-  echo "<br><br><center><h4>Welcome, " . $_POST['email'] . "</h4><br></center>";
 //now check if username has line in foodconcerns table
 echo "<h5>We just need a few more details to get you on your way.</h5><br><br>What are your food concerns?<form action=\"saveFoodConcerns.php\" method=\"post\"> <!-- go to index on sign up completion? --><div class=\"multiselect\" ><select name=\"allergies[]\" id=\"allergies[]\" multiple=\"multiple\"><option value=\"gluten\">Gluten</option><option value=\"celiac\">Celiac</option><option value=\"lactose\">Lactose</option><option value=\"dairy\">Dairy</option><option value=\"egg\">Egg</option><option value=\"peanut\">Peanut</option><option value=\"corn\">Corn</option><option value=\"soy\">Soy</option><option value=\"vege\">Vegetarian</option><option value=\"vegan\">Vegan</option></select></div><br><br><div id=\"confirm0\"></div><div id=\"confirm\"></div><div class=\"buttonContainer\"><button class=\"btn waves-effect waves-light\" type=\"submit\" name=\"action\" id='signupSubmit'>Submit</button></div></form>";
 }
@@ -202,6 +200,20 @@ $conn->close();
     window.history.back();
   }
   </script>
+<script>
+  $(document).ready(function(){
+    $(".dropdown-button").dropdown();
 
+    $("ul #dropdown1 li").click(function(){
+      var string = $(this).text();
+      if (string =="Teal"){
+        $(".nav-wrapper").css("background-color", "#00bfa5");
+      }
+      else if (string=="Salmon"){$(".nav-wrapper").css("background-color", "#EE6E73");}
+      else if (string =="Black"){$(".nav-wrapper").css("background-color", "#212121");}
+    });
+
+  });
+  </script>
 </body>
 </html>
