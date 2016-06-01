@@ -18,26 +18,25 @@ session_start();
   <link rel="stylesheet" type="text/css"  href="style.css" />
 </head>
 <body>
-
+<!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#">Teal</a></li>
+    <li><a href="#">Salmon</a></li>
+    <li><a href="#">Black</a></li>
+  </ul>
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="/index.html" class="brand-logo">Delivery</a>
+        <a href="./index.html" class="brand-logo">Delivery</a>
         <ul class="right ">
-          <li> <label for="search" class='search'><i class="material-icons">search</i></label></li>
           <li><a href="./signup.html">Sign Up</a></li>
           <li><a href="#signup-modal">Sign In</a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button" href="#" data-activates="dropdown1">Theme</a></li>
           <li><a href="#shopping-cart" onclick="showHide()"><i class = "material-icons" id="cart">shopping_cart</i></a></li>
         </ul>
       </div>
     </nav>
-    <div class='searchBar'>
-  <div class="input-field">
-    <input id="search" type="search" required>
-    <label for="search"><i class="material-icons">search</i></label>
-    <i class="material-icons">close</i>
-  </div>
-</div>
   </div>
 <!-- Cart -->
 <!-- http://codepen.io/drehimself/pen/VvYLmV -->
@@ -280,10 +279,7 @@ if($vegan == 1){
   $(document).ready(function() {
     $('select').material_select();
   });
-  $('.search').click(function(){
-    $('.searchBar').toggle("swing");
 
-  });
   $('#checkbox').change(function(){
     if (this.checked){
       $("#hideOrNo").fadeIn("slow");
@@ -311,6 +307,20 @@ if($vegan == 1){
     window.history.back();
   }
   </script>
+<script>
+  $(document).ready(function(){
+    $(".dropdown-button").dropdown();
 
+    $("ul #dropdown1 li").click(function(){
+      var string = $(this).text();
+      if (string =="Teal"){
+        $(".nav-wrapper").css("background-color", "#00bfa5");
+      }
+      else if (string=="Salmon"){$(".nav-wrapper").css("background-color", "#EE6E73");}
+      else if (string =="Black"){$(".nav-wrapper").css("background-color", "#212121");}
+    });
+
+  });
+  </script>
 </body>
 </html>
